@@ -1,3 +1,7 @@
+body {
+	background-image: url("hip-square.png");
+}
+
 #container {
 	display: grid;
 	width: 40vh;
@@ -13,7 +17,7 @@
 		"numpad numpad operation";
 		
 	background-color: hsl(44, 58%, 53%);
-	box-shadow: 3vh 2vh hsl(44, 58%, 25%);
+	box-shadow: 3vh 2vh hsl(44, 58%, 20%);
 }
 	
 #display {
