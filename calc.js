@@ -1,7 +1,11 @@
+var storedValue = false;
+var displayValue = false;
+var operationActive = false;
+var clearScreen = false;
+
 
 const numpad = document.querySelector("#numpad");
-
-
+const display = document.querySelector("#display");
 
 for (let i = 9; i >= 0; i--) {
 	let tempBtn = document.createElement('button');
@@ -33,17 +37,62 @@ const clearBtn = document.createElement('button');
 	clearBtn.style.gridRow = 4;
 	clearBtn.addEventListener("click", function(){clearPress()});
 	numpad.appendChild(clearBtn);
-	
+
+const opContainer = document.querySelector("#operationsContainer");
+for (child of opContainer.childNodes) {
+	child.addEventListener("click", function(){operationPress(this.id)});
+}
+
+
+
+
+
 
 
 function numPress(key) { 
-	let display = document.querySelector("#display");
-	display.textContent = display.textContent + String(key); 
+	if (clearScreen) {
+		drawScreen(null);
+	}
+	clearScreen = false;
+	displayValue =  display.textContent + String(key);
+	drawScreen(displayValue);
 }
 
 function clearPress(key) {
-	let display = document.querySelector("#display");
-	display.textContent = ""; 
+	displayValue = "";
+	storedValue = null;
+	clearScreen = false;
+	operationActive = false;
+	drawScreen(null);; 
+}
+
+function operationPress(id) {
+
+	drawScreen(displayValue);
+	if (display.textContent == "") {return}
+
+	if (operationActive) {
+		console.log(operationActive, id)
+		displayValue = operate(operationActive, Number(storedValue), Number(displayValue));
+		storedValue = displayValue;
+		drawScreen(displayValue);
+		clearScreen = true;
+		operationActive = id;
+		if (id == "equals") {
+			operationActive = false;
+		}
+		console.log(operationActive, id)
+
+	} else {
+		if (id != "equals") {
+			operationActive = id;
+			storedValue = displayValue;
+			clearScreen = true;
+			console.log("No Active Operation, ADDING:"+id);
+		}
+
+	}
+	
 }
 
 function operate(operator, a, b) {
@@ -60,7 +109,7 @@ function operate(operator, a, b) {
 }
 		
 function add (a,b) {
-	return a+b;
+	return Number(a)+Number(b);
 }
 
 function subtract (a,b) {
@@ -73,4 +122,10 @@ function multiply (a,b) {
 
 function divide (a, b) {
 	return a/b;	
+}
+
+function drawScreen(value) {
+	console.log(storedValue, displayValue, operationActive, clearScreen)
+	if (value) {display.textContent =  String(value);}
+	else {display.textContent = "";}	
 }
