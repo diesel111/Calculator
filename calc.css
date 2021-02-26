@@ -1,0 +1,104 @@
+#container {
+	display: grid;
+	width: 40vh;
+	height: 60vh;
+	margin: 10vh auto 0 auto;
+	padding: 3vh 3vh 6vh 3vh;
+	border-radius: 5vh;
+	grid-template-columns: 2fr 2fr 1.5fr;
+	grid-template-rows: 15vh 2fr 2fr;
+	grid-template-areas:
+		"display display display"
+		"numpad numpad operation"
+		"numpad numpad operation";
+		
+	background-color: hsl(44, 58%, 53%);
+	box-shadow: 3vh 2vh hsl(44, 58%, 25%);
+}
+	
+#numpad {
+	grid-area: numpad;
+	display: flex;
+	flex-flow: row-reverse wrap;
+	align-items: stretch;
+	
+	
+	
+}
+
+
+#display {
+	grid-area: display;
+	width: 95%;
+	height: 80%;
+	align-self: center;
+	justify-self: center;
+	margin: 5% 0 10% 0;
+	padding: 0 0 0 0;
+	font-size: 8vh;
+	text-align: right;
+	background-color: green;
+	box-shadow: 1vh 1vh black inset;
+	font-family: 'DotGothic16', sans-serif;
+	letter-spacing: 0.9vh;
+}
+
+#operationsContainer {
+	grid-area: operation;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-end;
+	justify-items: end;
+}
+
+.operation {
+	width: 80%;
+	flex-grow: 1;
+	flex-shrink: 0;
+	margin-left: 0;
+}
+
+#equals {
+	flex-grow: 12;
+}
+
+#btn0 {
+	
+
+}
+
+
+#clearBtn {
+	background-color: red;
+	border-color: hsl(0, 60%, 70%);
+	border-bottom-color: hsl(0, 60%, 30%); 
+	border-right-color: hsl(0, 60%, 30%);
+}
+
+
+	
+
+.numKeys {
+	width: auto;
+	height: auto;
+	flex-grow: 3;
+	border-radius: 1vh;
+	text-align: center;
+
+}
+
+button {
+	border-radius: 1vh;
+	border-width: 0.5vh;
+	box-shadow:  0.75vh 0.75vh hsl(0,100%,25%) ;
+	margin: 0 1vh 1vh 0;
+	box-sizing: border-box;
+	font-weight: bold;
+	font-size: 3vh;
+	font-family: sans-serif;
+	color: hsl(0,0%, 20%);
+	border-color: hsl(0, 0%, 80%);
+	border-bottom-color: hsl(0, 0%, 0%); 
+	border-right-color: hsl(0, 0%, 0%);
+	
+}
