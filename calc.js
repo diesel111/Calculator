@@ -73,11 +73,19 @@ function operationPress(id) {
 
 	if (operationActive) {
 		console.log(operationActive, id)
+		if (operationActive == "divide" && displayValue == 0) {
+			clearPress();
+			drawScreen("ERROR");
+			clearScreen = true;
+		} else {
+		
 		displayValue = operate(operationActive, Number(storedValue), Number(displayValue));
 		storedValue = displayValue;
 		drawScreen(displayValue);
 		clearScreen = true;
 		operationActive = id;
+		}
+
 		if (id == "equals") {
 			operationActive = false;
 		}
@@ -121,6 +129,7 @@ function multiply (a,b) {
 }
 
 function divide (a, b) {
+	
 	return a/b;	
 }
 
