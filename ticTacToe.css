@@ -1,0 +1,57 @@
+:root {
+    --h: 40vh;
+    --w: 40vh;
+}
+
+
+
+#displayArea {
+    height: var(--h);
+    width: var(--w);
+    margin: auto;
+}
+
+#gridContainer {
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+
+    display: grid;
+    grid: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.gridSquares {
+    width: 100%;
+    height: 100%;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+#square0 {
+    border-top-style: hidden;
+    border-left-style: hidden;
+}
+#square1 {
+    border-top-style: hidden;
+}
+#square2 {
+    border-top-style: hidden;
+    border-right-style: hidden;
+}
+#square3 {
+    border-left-style: hidden;
+}
+#square5 {
+    border-right-style: hidden;
+}
+#square6 {
+    border-left-style: hidden;
+    border-bottom-style: hidden;
+}
+#square7 {
+    border-bottom-style: hidden;
+}
+#square8 {
+    border-right-style: hidden;
+    border-bottom-style: hidden;
+}
