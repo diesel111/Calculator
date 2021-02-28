@@ -8,50 +8,59 @@
 #displayArea {
     height: var(--h);
     width: var(--w);
-    margin: auto;
+    margin: 10vh auto 0 auto;
+    padding: 2%;
+    border-style: solid;
+    background-color: aqua;
 }
 
 #gridContainer {
     height: 100%;
     width: 100%;
-    background-color: grey;
-
+    background-color: lightblue;
     display: grid;
     grid: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    align-content: center;
+    justify-content: center;
 }
 
 .gridSquares {
+    display: flex;
     width: 100%;
     height: 100%;
     border-style: solid;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: calc(var(--h)/5);
 }
 
-#square0 {
+[id='00']{
     border-top-style: hidden;
     border-left-style: hidden;
 }
-#square1 {
+[id='01'] {
     border-top-style: hidden;
 }
-#square2 {
+[id='02'] {
     border-top-style: hidden;
     border-right-style: hidden;
 }
-#square3 {
+[id='10'] {
     border-left-style: hidden;
 }
-#square5 {
+[id='12'] {
     border-right-style: hidden;
 }
-#square6 {
+[id='20']{
     border-left-style: hidden;
     border-bottom-style: hidden;
 }
-#square7 {
+[id='21'] {
     border-bottom-style: hidden;
 }
-#square8 {
+[id='22'] {
     border-right-style: hidden;
     border-bottom-style: hidden;
 }
